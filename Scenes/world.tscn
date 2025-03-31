@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dotimcncv5n73"]
+
+[ext_resource type="PackedScene" uid="uid://d0qbae0dmte8u" path="res://Scenes/Outside/pc_outside.tscn" id="1_ew24o"]
+
+[node name="World" type="Node2D"]
+
+[node name="PC" parent="." instance=ExtResource("1_ew24o")]

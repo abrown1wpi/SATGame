@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp3d2mcte8dn8"]
+
+[ext_resource type="Script" path="res://Scripts/fight.gd" id="1_7vkbs"]
+[ext_resource type="Texture2D" uid="uid://dtn0nn8t8whqc" path="res://Art/Nature/forest.png" id="1_lw86i"]
+
+[node name="Fight" type="Node2D"]
+script = ExtResource("1_7vkbs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("1_lw86i")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1028.0
+offset_top = 547.0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="Attack" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Attack
+"
+
+[node name="Heal" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Heal"
+
+[node name="Escape" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Escape
+"
+
+[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer"]
