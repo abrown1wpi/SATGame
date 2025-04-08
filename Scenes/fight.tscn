@@ -1,10 +1,98 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp3d2mcte8dn8"]
+[gd_scene load_steps=5 format=3 uid="uid://bp3d2mcte8dn8"]
 
-[ext_resource type="Script" path="res://Scripts/fight.gd" id="1_7vkbs"]
 [ext_resource type="Texture2D" uid="uid://dtn0nn8t8whqc" path="res://Art/Nature/forest.png" id="1_lw86i"]
+[ext_resource type="Script" path="res://Scripts/fight_settup.gd" id="1_xrawv"]
+[ext_resource type="PackedScene" uid="uid://cubbg31kchrdl" path="res://Scenes/Fight/Stopwatch.tscn" id="3_2et8h"]
 
-[node name="Fight" type="Node2D"]
-script = ExtResource("1_7vkbs")
+[sub_resource type="GDScript" id="GDScript_na6kr"]
+script/source = "extends VBoxContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Fight" type="Node2D" node_paths=PackedStringArray("stopwatch_label")]
+script = ExtResource("1_xrawv")
+stopwatch_label = NodePath("Window/Control/Timer_Label")
+
+[node name="Window" type="Window" parent="."]
+title = "Question"
+initial_position = 1
+size = Vector2i(700, 400)
+
+[node name="Control" type="Control" parent="Window"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Question_Label" type="Label" parent="Window/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "hello"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/Control"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -22.0
+offset_right = 4.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Answer_1" type="Button" parent="Window/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Answer_2" type="Button" parent="Window/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Answer_3" type="Button" parent="Window/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Answer_4" type="Button" parent="Window/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Congrat_Label" type="Label" parent="Window/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer_Label" type="Label" parent="Window/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00:00:00"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -27,6 +115,7 @@ offset_left = 1028.0
 offset_top = 547.0
 offset_right = 1151.0
 offset_bottom = 648.0
+script = SubResource("GDScript_na6kr")
 
 [node name="Attack" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -42,4 +131,7 @@ layout_mode = 2
 text = "Escape
 "
 
-[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer"]
+[node name="Stopwatch" parent="." instance=ExtResource("3_2et8h")]
+
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Attack" to="." method="_on_attack_pressed"]
