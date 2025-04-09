@@ -4,7 +4,7 @@ var stats : Char_Fight
 var sprite_path : String
 @onready var char_ani = $"Control/CharAni"
 
-func _init(attack_strength, health, sprite_path_in) -> void:
+func init(attack_strength, health, sprite_path_in) -> void:
 	stats = Char_Fight.new()
 	stats.attack_mult = attack_strength
 	stats.health = health

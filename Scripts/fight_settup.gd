@@ -8,6 +8,7 @@ var rng = RandomNumberGenerator.new()
 @onready var congrat_label = $"Window/Control/Congrat_Label"
 @onready var answer_choices = [$Window/Control/VBoxContainer/Answer_1, $Window/Control/VBoxContainer/Answer_2, $Window/Control/VBoxContainer/Answer_3, $Window/Control/VBoxContainer/Answer_4]
 @onready var correct_answer
+@onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
 
 @export var stopwatch_label : Label
 
@@ -24,6 +25,11 @@ func _ready() -> void:
 	for i in range (0, answer_choices.size()):
 		var button = answer_choices[i]
 		button.pressed.connect(Callable(_on_answer_choice).bind(button))
+	
+	var player_instance = char_base.instantiate()
+	player_instance.init(10, 10, "res://Art/Characters/Monkey_Fight_Sprites.tres")
+	add_child(player_instance)
+	player_instance.position = Vector2(300, 200)
 
 func _process(delta: float) -> void:
 	stopwatch_label.text = stopwatch.time_to_string()
