@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1e31b813y1hp"]
+
+[ext_resource type="Script" path="res://Scripts/char_in_fight.gd" id="1_myb7i"]
+[ext_resource type="SpriteFrames" uid="uid://ch1oyic5ww1qw" path="res://Art/Characters/Monkey_Fight_Sprites.tres" id="2_1pwf5"]
+
+[node name="CharInFight" type="Node2D"]
+script = ExtResource("1_myb7i")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharAni" type="AnimatedSprite2D" parent="Control"]
+sprite_frames = ExtResource("2_1pwf5")
