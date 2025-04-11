@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://butg1548euxfe"]
+
+[ext_resource type="Texture2D" uid="uid://d4ar4aqxskypx" path="res://Art/Characters/Soldier.png" id="1_nuyy8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw3sy"]
+atlas = ExtResource("1_nuyy8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fix0"]
+atlas = ExtResource("1_nuyy8")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7veg"]
+atlas = ExtResource("1_nuyy8")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_356id"]
+atlas = ExtResource("1_nuyy8")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlyt7"]
+atlas = ExtResource("1_nuyy8")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut3d0"]
+atlas = ExtResource("1_nuyy8")
+region = Rect2(500, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw3sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fix0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7veg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_356id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlyt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut3d0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

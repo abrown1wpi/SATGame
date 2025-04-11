@@ -27,9 +27,10 @@ func _ready() -> void:
 		button.pressed.connect(Callable(_on_answer_choice).bind(button))
 	
 	var player_instance = char_base.instantiate()
-	player_instance.init(10, 10, "res://Art/Characters/Monkey_Fight_Sprites.tres")
+	player_instance.init(10, 10, "res://Art/Characters/Default.tres")
 	add_child(player_instance)
-	player_instance.position = Vector2(300, 200)
+	player_instance.position = Vector2(40, 450)
+	player_instance.scale = Vector2(6,6)
 
 func _process(delta: float) -> void:
 	stopwatch_label.text = stopwatch.time_to_string()
@@ -41,6 +42,7 @@ func _on_window_close_requested() -> void:
 	q_popup.hide()
 
 func On_Question():	
+	stopwatch.reset()
 	for i in range (0, answer_choices.size()):
 		answer_choices[i].show()
 	congrat_label.hide()
@@ -69,6 +71,12 @@ func _on_answer_choice(button) -> void:
 		congrat_label.set_text("Womp womp")
 			
 	congrat_label.show()
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	
+	q_popup.hide()
+	
 
 
 	
