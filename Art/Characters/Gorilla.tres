@@ -1,6 +1,19 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://r7ys3wlkw2fr"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://r7ys3wlkw2fr"]
 
 [ext_resource type="Texture2D" uid="uid://d4ar4aqxskypx" path="res://Art/Characters/Soldier.png" id="1_q6stg"]
+[ext_resource type="Texture2D" uid="uid://iwph1uedqma3" path="res://Art/Characters/gorilla_spritesheet.png" id="1_sttya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpqpu"]
+atlas = ExtResource("1_sttya")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4qj5"]
+atlas = ExtResource("1_sttya")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6b8w"]
+atlas = ExtResource("1_sttya")
+region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw3sy"]
 atlas = ExtResource("1_q6stg")
@@ -28,6 +41,20 @@ region = Rect2(500, 0, 100, 100)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpqpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4qj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6b8w")
+}],
+"loop": true,
+"name": &"gorilla_death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hw3sy")
