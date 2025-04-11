@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://r7ys3wlkw2fr"]
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://r7ys3wlkw2fr"]
 
 [ext_resource type="Texture2D" uid="uid://iwph1uedqma3" path="res://Art/Characters/gorilla_spritesheet.png" id="1_sttya"]
 
@@ -14,6 +14,22 @@ region = Rect2(32, 128, 32, 32)
 atlas = ExtResource("1_sttya")
 region = Rect2(64, 128, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyyvg"]
+atlas = ExtResource("1_sttya")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw8jc"]
+atlas = ExtResource("1_sttya")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtbtt"]
+atlas = ExtResource("1_sttya")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qekxe"]
+atlas = ExtResource("1_sttya")
+region = Rect2(96, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5g34f"]
 atlas = ExtResource("1_sttya")
 region = Rect2(0, 0, 32, 32)
@@ -21,6 +37,46 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5ffj"]
 atlas = ExtResource("1_sttya")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckkmc"]
+atlas = ExtResource("1_sttya")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxsja"]
+atlas = ExtResource("1_sttya")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsc8"]
+atlas = ExtResource("1_sttya")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkkt7"]
+atlas = ExtResource("1_sttya")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr4r3"]
+atlas = ExtResource("1_sttya")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd3do"]
+atlas = ExtResource("1_sttya")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bjec"]
+atlas = ExtResource("1_sttya")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cly07"]
+atlas = ExtResource("1_sttya")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8by8v"]
+atlas = ExtResource("1_sttya")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rixcf"]
+atlas = ExtResource("1_sttya")
+region = Rect2(160, 32, 32, 32)
 
 [resource]
 animations = [{
@@ -40,12 +96,69 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yyyvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw8jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtbtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qekxe")
+}],
+"loop": true,
+"name": &"gorilla_front_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5g34f")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g5ffj")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"gorilla_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckkmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxsja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkkt7")
+}],
+"loop": true,
+"name": &"gorilla_side_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr4r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd3do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bjec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cly07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8by8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rixcf")
+}],
+"loop": true,
+"name": &"gorilla_turn",
 "speed": 5.0
 }]
