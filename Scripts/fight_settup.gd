@@ -9,7 +9,7 @@ var rng = RandomNumberGenerator.new()
 @onready var congrat_label = $"Window/Control/Congrat_Label"
 @onready var answer_choices = [$Window/Control/VBoxContainer/Answer_1, $Window/Control/VBoxContainer/Answer_2, $Window/Control/VBoxContainer/Answer_3, $Window/Control/VBoxContainer/Answer_4]
 @onready var correct_answer
-@onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
+@onready var handler = $"Fight_Handler"
 
 @export var stopwatch_label : Label
 
@@ -17,6 +17,7 @@ var stopwatch : Stopwatch
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	handler.Create_Char()
 	option_container.show()
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	
@@ -27,12 +28,6 @@ func _ready() -> void:
 	for i in range (0, answer_choices.size()):
 		var button = answer_choices[i]
 		button.pressed.connect(Callable(_on_answer_choice).bind(button))
-	
-	var player_instance = char_base.instantiate()
-	player_instance.init(10, 10, "res://Art/Characters/Default.tres")
-	add_child(player_instance)
-	player_instance.position = Vector2(40, 450)
-	player_instance.scale = Vector2(6,6)
 
 func _process(delta: float) -> void:
 	stopwatch_label.text = stopwatch.time_to_string()
