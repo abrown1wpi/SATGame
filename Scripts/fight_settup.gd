@@ -4,6 +4,7 @@ var questions : Question_Handler = Question_Handler.new()
 var rng = RandomNumberGenerator.new()
 
 @onready var q_popup = $"Window"
+@onready var option_container = $"CanvasLayer/VBoxContainer"
 @onready var question_label = $"Window/Control/Question_Label"
 @onready var congrat_label = $"Window/Control/Congrat_Label"
 @onready var answer_choices = [$Window/Control/VBoxContainer/Answer_1, $Window/Control/VBoxContainer/Answer_2, $Window/Control/VBoxContainer/Answer_3, $Window/Control/VBoxContainer/Answer_4]
@@ -16,6 +17,7 @@ var stopwatch : Stopwatch
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	option_container.show()
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	
 	questions.fight_start()
@@ -74,8 +76,8 @@ func _on_answer_choice(button) -> void:
 	
 	await get_tree().create_timer(1.5).timeout
 	
-	
 	q_popup.hide()
+	option_container.hide()
 	
 
 
