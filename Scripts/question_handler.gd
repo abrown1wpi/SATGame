@@ -1,5 +1,5 @@
 extends Resource
-class_name Question_Handler
+class_name q_Handler
 
 var question_data_path = "res://Data/questionsJSON.json"
 

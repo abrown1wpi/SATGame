@@ -11,6 +11,3 @@ func init(attack_strength, health, sprite_path_in) -> void:
 	
 	sprite_path = sprite_path_in
 	
-#func _ready() -> void:
-#	char_ani.sprite_frames = load(sprite_path)
-	
