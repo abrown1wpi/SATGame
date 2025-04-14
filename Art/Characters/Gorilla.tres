@@ -91,7 +91,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_f6b8w")
 }],
 "loop": true,
-"name": &"gorilla_death",
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -108,7 +108,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qekxe")
 }],
 "loop": true,
-"name": &"gorilla_front_fight",
+"name": &"front_fight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -119,7 +119,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_g5ffj")
 }],
 "loop": true,
-"name": &"gorilla_idle",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -136,7 +136,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dkkt7")
 }],
 "loop": true,
-"name": &"gorilla_side_fight",
+"name": &"side_fight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -159,6 +159,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_rixcf")
 }],
 "loop": true,
-"name": &"gorilla_turn",
+"name": &"walk",
 "speed": 5.0
 }]
