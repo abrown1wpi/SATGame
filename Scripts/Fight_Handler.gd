@@ -7,7 +7,7 @@ func Calc_DMG():
 	
 func Create_Char(path : String):
 	var player_instance = char_base.instantiate()
-	player_instance.init(10, 10, path)
+	player_instance.call_deferred("init", 10, 100, path)
 	add_child(player_instance)
 	player_instance.position = Vector2(40, 450)
 	player_instance.scale = Vector2(6,6)

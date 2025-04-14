@@ -1,6 +1,6 @@
 extends Node2D
 
-var questions : Question_Handler = Question_Handler.new()
+var questions : q_Handler = q_Handler.new()
 var rng = RandomNumberGenerator.new()
 
 @onready var q_popup = $"Window"
@@ -17,7 +17,7 @@ var stopwatch : Stopwatch
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	handler.Create_Char()
+	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres")
 	option_container.show()
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	
