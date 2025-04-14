@@ -131,7 +131,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_axdoo")
 }],
 "loop": true,
-"name": &"monkey_death",
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -148,7 +148,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pdboe")
 }],
 "loop": true,
-"name": &"monkey_front_fight",
+"name": &"front_fight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -189,7 +189,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_o320c")
 }],
 "loop": true,
-"name": &"monkey_idle",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -206,7 +206,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_eikn8")
 }],
 "loop": true,
-"name": &"monkey_side_fight",
+"name": &"side_fight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -229,6 +229,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_toejw")
 }],
 "loop": true,
-"name": &"monkey_turn",
+"name": &"turn",
 "speed": 5.0
 }]
