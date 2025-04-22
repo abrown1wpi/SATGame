@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1e31b813y1hp"]
 
 [ext_resource type="Script" path="res://Scripts/char_in_fight.gd" id="1_myb7i"]
-[ext_resource type="SpriteFrames" uid="uid://butg1548euxfe" path="res://Art/Characters/Default.tres" id="2_5tj4n"]
+[ext_resource type="SpriteFrames" uid="uid://ch1oyic5ww1qw" path="res://Art/Characters/Monkey_Fight_Sprites.tres" id="2_ox4rp"]
 
 [node name="CharInFight" type="Node2D"]
 script = ExtResource("1_myb7i")
@@ -29,5 +29,5 @@ value = 100.0
 
 [node name="CharAni" type="AnimatedSprite2D" parent="Control"]
 position = Vector2(23, 20)
-sprite_frames = ExtResource("2_5tj4n")
+sprite_frames = ExtResource("2_ox4rp")
 animation = &"idle"

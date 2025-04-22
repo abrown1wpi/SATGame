@@ -4,6 +4,12 @@ var stats : Char_Fight
 var sprite_path : String
 @onready var char_ani = $"Control/CharAni"
 
+func _ready():
+	char_ani.play("turn")
+	
+func _process(delta):
+	pass
+
 func init(attack_strength : int, health: int, sprite_path_in: String) -> void:
 	stats = Char_Fight.new()
 	stats.attack_mult = attack_strength

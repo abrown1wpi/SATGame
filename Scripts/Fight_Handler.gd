@@ -14,3 +14,4 @@ func Create_Char(path : String):
 
 func Pass_Turn():
 	turn = !turn
+	
