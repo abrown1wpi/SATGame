@@ -29,5 +29,8 @@ value = 100.0
 
 [node name="CharAni" type="AnimatedSprite2D" parent="Control"]
 position = Vector2(23, 20)
+scale = Vector2(2.06657, 2.22127)
 sprite_frames = ExtResource("2_ox4rp")
-animation = &"idle"
+animation = &"walk"
+frame = 1
+frame_progress = 0.599994
