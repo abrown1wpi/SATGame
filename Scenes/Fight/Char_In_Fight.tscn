@@ -28,9 +28,7 @@ step = 1.0
 value = 100.0
 
 [node name="CharAni" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(23, 20)
-scale = Vector2(2.06657, 2.22127)
+position = Vector2(24, 18)
+scale = Vector2(1.3, 1.3)
 sprite_frames = ExtResource("2_ox4rp")
-animation = &"walk"
-frame = 1
-frame_progress = 0.599994
+animation = &"idle"
