@@ -7,12 +7,13 @@ extends Node
 @onready var congrat_label = $"/root/Fight/Window/Control/Congrat_Label"
 @onready var answer_choices = [$/root/Fight/Window/Control/VBoxContainer/Answer_1, $/root/Fight/Window/Control/VBoxContainer/Answer_2, $/root/Fight/Window/Control/VBoxContainer/Answer_3, $/root/Fight/Window/Control/VBoxContainer/Answer_4]
 @onready var correct_answer
+
 var turn = true
 
 func Calc_DMG():
 	pass
 	
-func Create_Char(path : String):
+func Create_Char(path : String, vector : Vector2):
 	var player_instance = char_base.instantiate()
 	player_instance.call_deferred("init", 10, 100, path)
 	add_child(player_instance)
@@ -46,6 +47,7 @@ func answer_choice(button) -> void:
 	
 	if button.text == correct_answer:
 		congrat_label.set_text("Gongrats. That is right")
+		Calc_DMG()
 	else:
 		congrat_label.set_text("Womp womp")
 			

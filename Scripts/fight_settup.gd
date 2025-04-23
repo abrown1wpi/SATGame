@@ -5,10 +5,10 @@ var rng = RandomNumberGenerator.new()
 
 @onready var q_popup = $"Window"
 @onready var option_container = $"CanvasLayer/VBoxContainer"
-@onready var question_label = $"Window/Control/Question_Label"
+
 @onready var congrat_label = $"Window/Control/Congrat_Label"
 @onready var answer_choices = [$Window/Control/VBoxContainer/Answer_1, $Window/Control/VBoxContainer/Answer_2, $Window/Control/VBoxContainer/Answer_3, $Window/Control/VBoxContainer/Answer_4]
-@onready var correct_answer
+
 @onready var handler = $"Fight_Handler"
 
 @export var stopwatch_label : Label
