@@ -17,6 +17,7 @@ var stopwatch : Stopwatch
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("reached")
 	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres")
 	option_container.show()
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
@@ -27,52 +28,20 @@ func _ready() -> void:
 	
 	for i in range (0, answer_choices.size()):
 		var button = answer_choices[i]
-		button.pressed.connect(Callable(_on_answer_choice).bind(button))
+		button.pressed.connect(Callable(handler.answer_choice).bind(button))
 
-func _process(delta: float) -> void:
-	stopwatch_label.text = stopwatch.time_to_string()
+#func _process(delta: float) -> void:
+#	stopwatch_label.text = stopwatch.time_to_string()
 	
 func _on_attack_pressed() -> void:
-	On_Question()
+	handler.On_Question(questions, rng)
 
 func _on_window_close_requested() -> void:
 	q_popup.hide()
 
-func On_Question():	
-	stopwatch.reset()
-	for i in range (0, answer_choices.size()):
-		answer_choices[i].show()
-	congrat_label.hide()
-		
-	var rand_question = rng.randi_range(0, questions.questions.size()-1)
-	correct_answer = questions.questions.get(rand_question).answer
-	var q_answer_list = [questions.questions.get(rand_question).answer]
-	q_answer_list.append_array(questions.questions.get(rand_question).incorrect_answers)
-	
-	q_answer_list.shuffle()
 
 
-	q_popup.show()
-	question_label.set_text(questions.questions.get(rand_question).question)
-	for i in range (0, answer_choices.size()):
-		answer_choices[i].set_text(q_answer_list[i])
 
-
-func _on_answer_choice(button) -> void:
-	for i in range (0, answer_choices.size()):
-		answer_choices[i].hide()
-	
-	if button.text == correct_answer:
-		congrat_label.set_text("Gongrats. That is right")
-	else:
-		congrat_label.set_text("Womp womp")
-			
-	congrat_label.show()
-	
-	await get_tree().create_timer(1.5).timeout
-	
-	q_popup.hide()
-	option_container.hide()
 	
 
 

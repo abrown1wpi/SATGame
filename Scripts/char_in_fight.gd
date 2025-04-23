@@ -5,7 +5,7 @@ var sprite_path : String
 @onready var char_ani = $"Control/CharAni"
 
 func _ready():
-	char_ani.play("turn")
+	pass
 	
 func _process(delta):
 	pass
