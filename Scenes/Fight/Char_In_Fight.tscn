@@ -34,3 +34,5 @@ sprite_frames = ExtResource("2_ox4rp")
 <<<<<<< Updated upstream
 animation = &"idle"
 =======
+animation = &"walk"
+>>>>>>> Stashed changes
