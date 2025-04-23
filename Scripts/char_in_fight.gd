@@ -22,3 +22,14 @@ func init(attack_strength : int, health: int, sprite_path_in: String) -> void:
 
 func play_death():
 	cur_ani = "death"
+	
+func play_walk():
+	cur_ani = "walk"
+	
+func play_side_fight():
+	cur_ani = "side_fight"
+	
+func play_front_fight():
+	cur_ani = "front_fight"
+	
+	
