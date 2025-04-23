@@ -18,7 +18,7 @@ var stopwatch : Stopwatch
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("reached")
-	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres")
+	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres", Vector2(40, 450))
 	option_container.show()
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	

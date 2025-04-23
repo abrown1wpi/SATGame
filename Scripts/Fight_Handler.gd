@@ -17,7 +17,7 @@ func Create_Char(path : String, vector : Vector2):
 	var player_instance = char_base.instantiate()
 	player_instance.call_deferred("init", 10, 100, path)
 	add_child(player_instance)
-	player_instance.position = Vector2(40, 450)
+	player_instance.position = vector
 	player_instance.scale = Vector2(6,6)
 
 func Pass_Turn():
