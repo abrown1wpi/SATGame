@@ -15,8 +15,8 @@ var turn = true
 # 0 is pc, 1 is enemy
 var char_list = []
 
-func Calc_DMG(char : int) -> int:
-	return char_list[char].attack
+func Calc_DMG(character : int) -> int:
+	return char_list[character].attack
 	
 func Create_Char(path : String, vector : Vector2):
 	var player_instance = char_base.instantiate()
@@ -27,7 +27,7 @@ func Create_Char(path : String, vector : Vector2):
 	
 	char_list.append(player_instance)
 	
-func On_Question(questions, rng):	
+func On_Question(questions):	
 	for i in range (0, answer_choices.size()):
 		answer_choices[i].show()
 	congrat_label.hide()

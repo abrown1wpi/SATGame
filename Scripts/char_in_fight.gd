@@ -17,7 +17,7 @@ func set_health(change : int):
 func get_health() -> int:
 	return heal
 	
-func _process(delta):
+func _process(_delta):
 	char_ani.play(cur_ani)
 
 func init(attack_strength : int, health: int, sprite_path_in: String) -> void:

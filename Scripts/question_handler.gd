@@ -17,7 +17,7 @@ func fight_start():
 		print("No data")
 			
 			
-func parse_question_data(id, json_data : Dictionary):
+func parse_question_data(_id, json_data : Dictionary):
 	var question_data : QuestionData = QuestionData.new()
 	
 	question_data.answer = str(json_data["C_ANSWER"])
