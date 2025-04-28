@@ -63,6 +63,8 @@ func answer_choice(button) -> void:
 	
 	q_popup.hide()
 	option_container.hide()
+	char_list[0].play_side_fight()
+	char_list[0].play_idle()
 	enemy_turn()
 	
 func enemy_turn():

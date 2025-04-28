@@ -39,5 +39,8 @@ func play_side_fight():
 	
 func play_front_fight():
 	cur_ani = "front_fight"
+
+func play_idle():
+	cur_ani = "idle"
 	
 	
