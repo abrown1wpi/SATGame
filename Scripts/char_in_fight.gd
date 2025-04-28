@@ -1,20 +1,28 @@
 extends Node2D
 
-var stats : Char_Fight
+var heal
+var attack
 var sprite_path : String
 var cur_ani : String
 @onready var char_ani = $"Control/CharAni"
+@onready var h_bar = $"Control/ProgressBar"
 
 func _ready():
 	cur_ani = "idle"
+
+func set_health(change : int):
+	heal -= change
+	h_bar.value = heal
+
+func get_health() -> int:
+	return heal
 	
 func _process(delta):
 	char_ani.play(cur_ani)
 
 func init(attack_strength : int, health: int, sprite_path_in: String) -> void:
-	stats = Char_Fight.new()
-	stats.attack_mult = attack_strength
-	stats.health = health
+	heal = health
+	attack = attack_strength
 	
 	sprite_path = sprite_path_in
 	var frames_resource = load(sprite_path) as SpriteFrames

@@ -1,4 +1,6 @@
 extends Node
+
+var rng = RandomNumberGenerator.new()
 @onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
 
 @onready var q_popup = $"/root/Fight/Window"
@@ -10,8 +12,11 @@ extends Node
 
 var turn = true
 
-func Calc_DMG():
-	pass
+# 0 is pc, 1 is enemy
+var char_list = []
+
+func Calc_DMG(char : int) -> int:
+	return char_list[char].attack
 	
 func Create_Char(path : String, vector : Vector2):
 	var player_instance = char_base.instantiate()
@@ -19,9 +24,8 @@ func Create_Char(path : String, vector : Vector2):
 	add_child(player_instance)
 	player_instance.position = vector
 	player_instance.scale = Vector2(6,6)
-
-func Pass_Turn():
-	turn = !turn
+	
+	char_list.append(player_instance)
 	
 func On_Question(questions, rng):	
 	for i in range (0, answer_choices.size()):
@@ -42,20 +46,33 @@ func On_Question(questions, rng):
 		answer_choices[i].set_text(q_answer_list[i])
 		
 func answer_choice(button) -> void:
+	var dmg = 0
 	for i in range (0, answer_choices.size()):
 		answer_choices[i].hide()
 	
 	if button.text == correct_answer:
 		congrat_label.set_text("Gongrats. That is right")
-		Calc_DMG()
+		dmg = Calc_DMG(0)
 	else:
 		congrat_label.set_text("Womp womp")
 			
 	congrat_label.show()
+	char_list[1].set_health(dmg)
 	
 	await get_tree().create_timer(1.5).timeout
 	
 	q_popup.hide()
 	option_container.hide()
-
+	enemy_turn()
+	
+func enemy_turn():
+	var dmg = 0
+	var hit = rng.randi_range(0,1)
+	if (hit == 1):
+		dmg = Calc_DMG(1)
+	
+	char_list[0].set_health(dmg)
+	
+	option_container.show()
+		
 	
