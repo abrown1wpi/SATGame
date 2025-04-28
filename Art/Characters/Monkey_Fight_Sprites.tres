@@ -128,7 +128,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -198,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hamh5")
 }],
-"loop": false,
+"loop": true,
 "name": &"side_fight",
 "speed": 5.0
 }, {
