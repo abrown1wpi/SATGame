@@ -46,5 +46,7 @@ func play_front_fight():
 
 func play_idle():
 	cur_ani = "idle"
-	
-	
+
+func _on_char_ani_animation_looped() -> void:
+	if (cur_ani == "side_fight"):
+		play_idle()
