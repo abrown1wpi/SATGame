@@ -1,8 +1,9 @@
 extends Node
 
 var rng = RandomNumberGenerator.new()
-@onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
+var type_choice : String
 
+@onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
 @onready var q_popup = $"/root/Fight/Window"
 @onready var option_container = $"/root/Fight/CanvasLayer/VBoxContainer"
 @onready var question_label = $"/root/Fight/Window/Control/Question_Label"
@@ -27,10 +28,12 @@ func Create_Char(path : String, vector : Vector2):
 	
 	char_list.append(player_instance)
 	
-func On_Question(questions):	
+func On_Question(questions, type : String):	
 	for i in range (0, answer_choices.size()):
 		answer_choices[i].show()
 	congrat_label.hide()
+	
+	type_choice = type
 		
 	var rand_question = rng.randi_range(0, questions.questions.size()-1)
 	correct_answer = questions.questions.get(rand_question).answer
@@ -47,17 +50,24 @@ func On_Question(questions):
 		
 func answer_choice(button) -> void:
 	var dmg = 0
+	var heal = 0
 	for i in range (0, answer_choices.size()):
 		answer_choices[i].hide()
 	
 	if button.text == correct_answer:
 		congrat_label.set_text("Congrats! That is right")
 		dmg = Calc_DMG(0)
+		congrat_label.set_text("Gongrats. That is right")
+		if (type_choice == "a"):
+			dmg = Calc_DMG(0)
+		if (type_choice == "h"):
+			heal = 10
 	else:
 		congrat_label.set_text("Womp womp")
 			
 	congrat_label.show()
-	char_list[1].set_health(dmg)
+	char_list[1].do_dmg(dmg)
+	char_list[0].do_heal(heal)
 	
 	await get_tree().create_timer(1.5).timeout
 	
@@ -72,7 +82,7 @@ func enemy_turn():
 	if (hit == 1):
 		dmg = Calc_DMG(1)
 	
-	char_list[0].set_health(dmg)
+	char_list[0].do_dmg(dmg)
 	
 	option_container.show()
 		

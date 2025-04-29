@@ -10,8 +10,12 @@ var cur_ani : String
 func _ready():
 	cur_ani = "idle"
 
-func set_health(change : int):
+func do_dmg(change : int):
 	heal -= change
+	h_bar.value = heal
+
+func do_heal(change : int):
+	heal += change
 	h_bar.value = heal
 
 func get_health() -> int:
