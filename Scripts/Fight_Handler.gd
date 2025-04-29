@@ -51,7 +51,7 @@ func answer_choice(button) -> void:
 		answer_choices[i].hide()
 	
 	if button.text == correct_answer:
-		congrat_label.set_text("Gongrats. That is right")
+		congrat_label.set_text("Congrats! That is right")
 		dmg = Calc_DMG(0)
 	else:
 		congrat_label.set_text("Womp womp")
@@ -64,7 +64,6 @@ func answer_choice(button) -> void:
 	q_popup.hide()
 	option_container.hide()
 	char_list[0].play_side_fight()
-	char_list[0].play_idle()
 	enemy_turn()
 	
 func enemy_turn():
