@@ -35,16 +35,10 @@ func _ready() -> void:
 #	stopwatch_label.text = stopwatch.time_to_string()
 	
 func _on_attack_pressed() -> void:
-	handler.On_Question(questions)
-
+	handler.On_Question(questions, "a")
+	
+func _on_heal_pressed() -> void:
+	handler.On_Question(questions, "h")
+	
 func _on_window_close_requested() -> void:
 	q_popup.hide()
-
-
-
-
-	
-
-
-	
-	
