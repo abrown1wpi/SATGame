@@ -57,7 +57,6 @@ func answer_choice(button) -> void:
 	if button.text == correct_answer:
 		congrat_label.set_text("Congrats! That is right")
 		dmg = Calc_DMG(0)
-		congrat_label.set_text("Gongrats. That is right")
 		if (type_choice == "a"):
 			dmg = Calc_DMG(0)
 		if (type_choice == "h"):
@@ -79,10 +78,12 @@ func answer_choice(button) -> void:
 func enemy_turn():
 	var dmg = 0
 	var hit = rng.randi_range(0,1)
+	await get_tree().create_timer(3.5).timeout
 	if (hit == 1):
 		dmg = Calc_DMG(1)
 	
 	char_list[0].do_dmg(dmg)
+	char_list[1].play_side_fight()
 	
 	option_container.show()
 		
