@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp3d2mcte8dn8"]
+[gd_scene load_steps=8 format=3 uid="uid://bp3d2mcte8dn8"]
 
 [ext_resource type="Script" path="res://Scripts/fight_settup.gd" id="1_gyjfr"]
 [ext_resource type="Texture2D" uid="uid://dtn0nn8t8whqc" path="res://Art/Nature/forest.png" id="1_lw86i"]
@@ -19,6 +19,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_ey0y6"]
+font_size = 40
+
+[sub_resource type="Theme" id="Theme_cwtoj"]
+default_font_size = 42
 
 [node name="Fight" type="Node2D"]
 script = ExtResource("1_gyjfr")
@@ -140,6 +146,45 @@ text = "Escape
 
 [node name="Fight_Handler" type="Node" parent="."]
 script = ExtResource("4_4ayhm")
+
+[node name="Death_Window" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(700, 400)
+
+[node name="Control" type="Control" parent="Death_Window"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Death" type="Label" parent="Death_Window/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Uh oh! You lost"
+label_settings = SubResource("LabelSettings_ey0y6")
+horizontal_alignment = 1
+
+[node name="Play_Again" type="Button" parent="Death_Window/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -33.0
+offset_right = 108.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cwtoj")
+text = "Play Again"
 
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Attack" to="." method="_on_attack_pressed"]

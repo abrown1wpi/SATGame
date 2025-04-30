@@ -4,6 +4,9 @@ var rng = RandomNumberGenerator.new()
 var type_choice : String
 
 @onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
+@onready var death_window = $"/root/Fight/Death_Window"
+@onready var death_label = $"/root/Fight/Death_Window/Control/Death"
+@onready var play_again = $"/root/Fight/Death_Window/Control/Play_Again"
 @onready var q_popup = $"/root/Fight/Window"
 @onready var option_container = $"/root/Fight/CanvasLayer/VBoxContainer"
 @onready var question_label = $"/root/Fight/Window/Control/Question_Label"
@@ -19,14 +22,15 @@ var char_list = []
 func Calc_DMG(character : int) -> int:
 	return char_list[character].attack
 	
-func Create_Char(path : String, vector : Vector2):
+func Create_Char(path : String, vector : Vector2, is_char : int):
 	var player_instance = char_base.instantiate()
-	player_instance.call_deferred("init", 10, 100, path)
+	player_instance.call_deferred("init", 10, 100, path, is_char)
 	add_child(player_instance)
 	player_instance.position = vector
 	player_instance.scale = Vector2(6,6)
 	
 	char_list.append(player_instance)
+	player_instance.died.connect(Callable(end_fight.bind(is_char)))
 	
 func On_Question(questions, type : String):	
 	for i in range (0, answer_choices.size()):
@@ -78,13 +82,29 @@ func answer_choice(button) -> void:
 func enemy_turn():
 	var dmg = 0
 	var hit = rng.randi_range(0,1)
-	await get_tree().create_timer(3.5).timeout
-	if (hit == 1):
-		dmg = Calc_DMG(1)
+	await get_tree().create_timer(0).timeout
+	#if (hit == 1):
+	dmg = Calc_DMG(1)
 	
 	char_list[0].do_dmg(dmg)
 	char_list[1].play_side_fight()
 	
 	option_container.show()
+	
+func end_fight(id):
+	char_list[0].hide()
+	char_list[1].hide()
+	
+	death_label.show()
+	death_window.show()
+	play_again.show()
+	if (id == 0):
+		death_label.set_text("You won!")
+	if (id == 1):
+		death_label.set_text("You lost :(")
+
+func load_scene():
+	get_tree().change_scene_to_file("res://Scenes/fight.tscn")
+	
 		
 	
