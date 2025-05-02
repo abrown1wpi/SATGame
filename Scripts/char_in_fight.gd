@@ -6,6 +6,7 @@ var attack
 var sprite_path : String
 var cur_ani : String
 var char_id
+var prev_ani = ""
 @onready var char_ani = $"Control/CharAni"
 @onready var h_bar = $"Control/ProgressBar"
 
@@ -26,7 +27,9 @@ func get_health() -> int:
 	return heal
 	
 func _process(_delta):
-	char_ani.play(cur_ani)
+	if(cur_ani != prev_ani):
+		char_ani.play(cur_ani)
+		prev_ani=cur_ani
 
 func init(attack_strength : int, health: int, sprite_path_in: String, is_char_num : int) -> void:
 	heal = health

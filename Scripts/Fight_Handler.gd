@@ -2,6 +2,7 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 var type_choice : String
+var fight_over = false
 
 @onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
 @onready var death_window = $"/root/Fight/Death_Window"
@@ -24,7 +25,7 @@ func Calc_DMG(character : int) -> int:
 	
 func Create_Char(path : String, vector : Vector2, is_char : int):
 	var player_instance = char_base.instantiate()
-	player_instance.call_deferred("init", 10, 100, path, is_char)
+	player_instance.call_deferred("init", 10, 10, path, is_char)
 	add_child(player_instance)
 	player_instance.position = vector
 	player_instance.scale = Vector2(6,6)
@@ -57,6 +58,7 @@ func answer_choice(button) -> void:
 	var heal = 0
 	for i in range (0, answer_choices.size()):
 		answer_choices[i].hide()
+	char_list[0].play_side_fight()
 	
 	if button.text == correct_answer:
 		congrat_label.set_text("Congrats! That is right")
@@ -76,15 +78,21 @@ func answer_choice(button) -> void:
 	
 	q_popup.hide()
 	option_container.hide()
-	char_list[0].play_side_fight()
+	
+	if (fight_over):
+		return
+	
 	enemy_turn()
 	
 func enemy_turn():
+	if (fight_over):
+		return
 	var dmg = 0
 	var hit = rng.randi_range(0,1)
-	await get_tree().create_timer(0).timeout
-	#if (hit == 1):
-	dmg = Calc_DMG(1)
+	await get_tree().create_timer(1.5).timeout
+	if (hit == 1):
+		dmg = Calc_DMG(1)
+		print("hit")
 	
 	char_list[0].do_dmg(dmg)
 	char_list[1].play_side_fight()
@@ -92,18 +100,26 @@ func enemy_turn():
 	option_container.show()
 	
 func end_fight(id):
-	char_list[0].hide()
-	char_list[1].hide()
+	fight_over = true
+	q_popup.hide()
+	option_container.hide()
 	
+	if (id == 0):
+		death_label.set_text("You Lost")
+		char_list[0].play_death()
+	if (id == 1):
+		death_label.set_text("Won")
+		char_list[1].play_death()
+	
+	await get_tree().create_timer(1).timeout
 	death_label.show()
 	death_window.show()
 	play_again.show()
-	if (id == 0):
-		death_label.set_text("You won!")
-	if (id == 1):
-		death_label.set_text("You lost :(")
 
 func load_scene():
+	call_deferred("_deferred_load_scene")
+
+func _deferred_load_scene():
 	get_tree().change_scene_to_file("res://Scenes/fight.tscn")
 	
 		

@@ -35,7 +35,7 @@ func _ready() -> void:
 	for i in range (0, answer_choices.size()):
 		var button = answer_choices[i]
 		button.pressed.connect(Callable(handler.answer_choice).bind(button))
-	play_again.pressed.connect(handler.load_scene())
+	play_again.pressed.connect(handler.load_scene)
 
 #func _process(delta: float) -> void:
 #	stopwatch_label.text = stopwatch.time_to_string()
