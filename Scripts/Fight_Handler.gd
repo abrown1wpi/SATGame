@@ -5,6 +5,7 @@ var type_choice : String
 var fight_over = false
 
 @onready var char_base =  load("res://Scenes/Fight/Char_In_Fight.tscn")
+@onready var health_bar_base = load("res://Scenes/Fight/Heart_Bar.tscn")
 @onready var death_window = $"/root/Fight/Death_Window"
 @onready var death_label = $"/root/Fight/Death_Window/Control/Death"
 @onready var play_again = $"/root/Fight/Death_Window/Control/Play_Again"
@@ -19,6 +20,7 @@ var turn = true
 
 # 0 is pc, 1 is enemy
 var char_list = []
+var health_list = []
 
 func Calc_DMG(character : int) -> int:
 	return char_list[character].attack
@@ -29,6 +31,11 @@ func Create_Char(path : String, vector : Vector2, is_char : int):
 	add_child(player_instance)
 	player_instance.position = vector
 	player_instance.scale = Vector2(6,6)
+	
+	var health_bar = health_bar_base.instantiate()
+	health_bar.call_deferred("init", 5)
+	add_child(health_bar)
+	health_bar.scale = Vector2(200,200)
 	
 	char_list.append(player_instance)
 	player_instance.died.connect(Callable(end_fight.bind(is_char)))

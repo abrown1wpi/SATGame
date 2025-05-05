@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3vftyg2w8dj"]
+
+[ext_resource type="Texture2D" uid="uid://dsu7kdc3ukvqi" path="res://Art/Characters/hearts.png" id="1_4vdct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1kv3"]
+atlas = ExtResource("1_4vdct")
+region = Rect2(22, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb771"]
+atlas = ExtResource("1_4vdct")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42rj8"]
+atlas = ExtResource("1_4vdct")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctsht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1kv3")
+}],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb771")
+}],
+"loop": true,
+"name": &"Full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj8")
+}],
+"loop": true,
+"name": &"Half",
+"speed": 5.0
+}]
+
+[node name="Heart" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ctsht")
+animation = &"Full"
