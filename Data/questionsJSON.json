@@ -6,7 +6,7 @@
 	  "ANSWER_1": 2,
 	  "ANSWER_2": 4,
 	  "ANSWER_3": 6,
-	  "EXPLANATION": "Choice C is correct. Let a equal the number of 120-pound packages, and let b equal the number of 100-pound packages. It’s given that the total weight of the packages can be at most 1,100 pounds: the inequality 120a + 100b ≤ 1,100 represents this situation. It's also given that the helicopter must carry at least 10 packages: the inequality a + b ≥ 10 represents this situation. Values of a and b that satisfy these two inequalities represent the allowable numbers of 120-pound packages and 100-pound packages the helicopter can transport. To maximize the number of 120-pound packages, a, in the helicopter, the number of 100-pound packages, b, in the helicopter needs to be minimized. Expressing b in terms of a in the second inequality yields b ≥ 10-a, so the minimum value of b is equal to 10 - a. Substituting 10 - a for b in the first inequality results in 120a + 100(10 - a) ≤ 1,100. Using the distributive property to rewrite this inequality yields 120a + 1,100 - 100a ≤ 1,100, or 20a + 1,000 ≤ 1,100. Subtracting 1,000 from both sides of this inequality yields 20a ≤ 100. Dividing both sides of this inequality by 20 results in a ≤ 5. This means that the maximum number of 120-pound packages that the helicopter can carry per trip is 5. Choices A, B, and D are incorrect and may result from incorrectly creating or solving the system of inequalities."
+	  "EXPLANATION": "explanation_0"
 	},
 	"1": {
 	  "QUESTION": "The function f is defined by f(x) = 8x. For what value of x does f(x) = 72?",
@@ -14,7 +14,7 @@
 	  "ANSWER_1": 8,
 	  "ANSWER_2": 64,
 	  "ANSWER_3": 80,
-	  "EXPLANATION": "Choice B is correct. Substituting 72 for f(x) in the given function yields 72 = 8x. Dividing each side of this equation by 8 yields 9 = x. Therefore, f(x) = 72 when the value of x is 9. Choice A is incorrect. This is the value of x for which f(x) = 64, not f(x) = 72. Choice C is incorrect. This is the value of x for which f(x) = 512, not f(x) = 72. Choice D is incorrect. This is the value of x for which f(x) = 640, not f(x) = 72."
+	  "EXPLANATION": "explanation_1"
 	},
 	"2": {
 	  "QUESTION": "A veterinarian recommends that each day a certain rabbit should eat 25 calories per pound of the rabbit’s weight, plus an additional 11 calories. Which equation represents this situation, where c is the total number of calories the veterinarian recommends the rabbit should eat each day if the rabbit's weight is x pounds?",
@@ -22,7 +22,7 @@
 	  "ANSWER_1": "c = 25x",
 	  "ANSWER_2": "c = 36x",
 	  "ANSWER_3": "c = 11x + 25",
-	  "EXPLANATION": "Choice D is correct. It’s given that a veterinarian recommends that each day the rabbit should eat 25 calories per pound of the rabbit’s weight, plus an additional 11 calories. If the rabbit's weight is x pounds, then multiplying 25 calories per pound by the rabbit’s weight, x pounds, yields 25x calories. Adding the additional 11 calories that the rabbit should eat each day yields 25x + 11 calories. It’s given that c is the total number of calories the veterinarian recommends the rabbit should eat each day is the rabbit's weight is x pounds. Therefore, this situation can be represented by the equation c = 25x + 11. Choice A is incorrect. This equation represents a situation where a veterinarian recommends that each day the rabbit should eat 25 calories per pound of the rabbit’s weight. Choice B is incorrect. This equation represents a situation where a veterinarian recommends that each day the rabbit should eat 25 + 11, or , 36 calories per pound of the rabbit’s weight. Choice C is incorrect. This equation represents a situation where a veterinarian recommends that each day the rabbit should eat 11 calories per pound of the rabbit’s weight, plus an additional 25 calories."
+	  "EXPLANATION": "explanation_2"
 	},
 	"3": {
 	  "QUESTION": "Each year, the value of an investment increases by 0.49% of its value the previous year. Which of the following functions best models how the value of the investment changes over time?",
@@ -30,7 +30,7 @@
 	  "ANSWER_1": "Decreasing exponential",
 	  "ANSWER_2": "Decreasing linear",
 	  "ANSWER_3": "Increasing linear",
-	  "EXPLANATION": "Choice C is correct. Because the value of the investment increases each year, the function that best models how the value of the investment changes over time is an increasing function. It′s given that each year, the value of the investment increases by 0.49% of its value the previous year. Since the value of the investment changes by a fixed percentage each year, the function that best models how the value of the investment changes over time is an exponential function. Therefore, the function that best models how the value of the investment changes over time is an increasing exponential function. Choice A is incorrect and may result from conceptual errors. Choice B is incorrect and may result from conceptual errors. Choice D is incorrect and may result from conceptual errors."
+	  "EXPLANATION": "explanation_3"
 	},
 	"4": {
 	  "QUESTION": "Gabriella deposits $35 in a savings account at the end of each week. At the beginning of the 1st week of a year there was $600 in that savings account. How much money, in dollars, will be in the account at the end of the 4th week of that year?",
@@ -38,135 +38,39 @@
 	  "ANSWER_1": 460,
 	  "ANSWER_2": 635,
 	  "ANSWER_3": 639,
-	  "EXPLANATION": "Choice D is correct. It’s given that at the beginning of the 1st week of the year there was $600 in a savings account and Gabriella deposits $35 in that savings account at the end of each week. Therefore, the amount of money, in dollars, in the savings account at the end of the 4th week of that year is 600 + 4(35), or 740. Choice A is incorrect. This is the amount of money, in dollars, that will be in the account at the end of the 4th week if Gabriella withdraws, rather than deposits, $35 at the end of each week. Choice B is incorrect. This is the amount of money, in dollars, that will be in the account at the end of the 1st week, not the 4th week. Choice C is incorrect and may result from conceptual or calculation errors."
+	  "EXPLANATION": "explanation_4"
 	},
 	"5": {
-	  "QUESTION": "Hector used a tool called an auger to remove corn from a storage bin at a constant rate. The bin contained 24,000 bushels of corn when Hector began to use the auger. After 5 hours of using the auger, 19,350 bushels of corn remained in the bin. If the auger continues to remove corn at this rate, what is the total number of hours Hector will have been using the auger when 12,840 bushels of corn remain in the bin?",
-	  "C_ANSWER": 12,
-	  "ANSWER_1": 3,
-	  "ANSWER_2": 7,
-	  "ANSWER_3": 8,
-	  "EXPLANATION": "Choice D is correct. After using the auger for 5 hours, Hector had removed 24,000 – 19,350 = 4,650 bushels of corn from the storage bin. During the 5-hour period, the auger removed corn from the bin at a constant rate of 4,650/5 = 930 bushels per hour. Assuming the auger continues to remove corn at this rate, after x hours it will have removed 930x bushels of corn. Because the bin contained 24,000 bushels of corn when Hector started using the auger, the equation 24,000 – 930x = 12,840 can be used to find the number of hours, x, Hector will have been using the auger when 12,840 bushels of corn remain in the bin. Subtracting 12,840 from both sides of this equation and adding 930x to both sides of the equation yields 11,160 = 930x. Dividing both sides of this equation by 930 yields x = 12. Therefore, Hector will have been using the auger for 12 hours when 12,840 bushels of corn remain in the storage bin. Choice A is incorrect. Three hours after Hector began using the auger, 24,000 – 3(930) = 21,210 bushels of corn remained, not 12,840. Choice B is incorrect. Seven hours after Hector began using the auger, 24,000 – 7(930) = 17,490 bushels of corn will remain, not 12,840. Choice C is incorrect. Eight hours after Hector began using the auger, 24,000 – 8(930) = 16,560 bushels of corn will remain, not 12,840."
-	},
-	"6": {
 	  "QUESTION": "A bus traveled on the highway and on local roads to complete a trip of 160 miles. The trip took 4 hours. The bus traveled at an\naverage speed of 55 miles per hour (mph) on the highway and an average speed of 25 mph on local roads. If x is the time, in hours, the bus traveled on the highway and y is the time, in hours, it traveled on local roads, which system of equations represents this situation?",
 	  "C_ANSWER": "55x + 25y = 160 \\n x + y = 4",
 	  "ANSWER_1": "55x + 25y = 4 \\n x + y = 160",
 	  "ANSWER_2": "25x + 55y = 4 \\n x + y = 160",
 	  "ANSWER_3": "25x + 55y = 160 \\n x + y = 4",
-	  "EXPLANATION": "Choice B is correct. If the bus traveled at an average speed of\n55 miles per hour (mph) on the highway for hours, then the bus traveled 55o miles on the highway. If the bus traveled at an average speed of 25 mph on local roads for y hours, then the bus traveled 25y miles on local roads. It's given that the trip was 160 miles. This can be represented by the equation 55x+25y = 160. It's also given that the trip took 4 hours. This can be represented by the equation x + y : 4. Therefore, the system consisting of the equations 55x + 25y = 160 and x + y = 4 represents this situation.\n=\nChoice A is incorrect. This system of equations represents a situation where the trip was 4 miles and took 160 hours.\nChoice C is incorrect. This system of equations represents a situation where the trip was 4 miles and took 160 hours, and the bus traveled at an average speed of 25 mph on the highway and 55 mph on local roads.\nChoice D is incorrect. This system of equations represents a situation where the bus traveled at an average speed of 25 mph on the highway and 55 mph on local roads."
+	  "EXPLANATION": "explanation_5"
 	},
-	"7": {
+	"6": {
 	  "QUESTION": "Julissa needs at least 100 hours of flight time to get her private pilot certification. If Julissa already has 86 hours of flight time, what is the minimum number of additional hours of flight time Julissa needs to get her private pilot certification?",
 	  "C_ANSWER": 14,
 	  "ANSWER_1": 76,
 	  "ANSWER_2": 86,
 	  "ANSWER_3": 186,
-	  "EXPLANATION": null
+	  "EXPLANATION": "explanation_6"
 	},
-	"8": {
-	  "QUESTION": "The pressure exerted on a scuba diver at sea level is\n14.70 pounds per square inch (psi). For each foot the scuba diver descends below sea level, the pressure exerted on the scuba diver increases by 0.44 psi. What is the total pressure, in psi, exerted on the scuba diver at 105 feet below sea level?",
-	  "C_ANSWER": 60.9,
-	  "ANSWER_1": 31.5,
-	  "ANSWER_2": 14.7,
-	  "ANSWER_3": 0.44,
-	  "EXPLANATION": null
-	},
-	"9": {
-	  "QUESTION": "An employee at a restaurant prepares sandwiches and salads. It takes the employee 1.5 minutes to prepare a sandwich and 1.9 minutes to prepare a salad. The employee spends a total of 46.1 minutes preparing a sandwiches and y salads. Which equation represents this situation?",
+	"7": {
+	  "QUESTION": "An employee at a restaurant prepares sandwiches and salads. It takes the employee 1.5 minutes to prepare a sandwich and 1.9 minutes to prepare a salad. The employee spends a total of 46.1 minutes preparing x sandwiches and y salads. Which equation represents this situation?",
 	  "C_ANSWER": "1.5x + 1.9y = 46.1",
 	  "ANSWER_1": "1.9x + 1.5y = 46.1",
 	  "ANSWER_2": "x + y = 46.1",
 	  "ANSWER_3": "30.7x + 24.3y = 46.1",
-	  "EXPLANATION": null
+	  "EXPLANATION": "explanation_7"
 	},
-	"10": {
+	"8": {
 	  "QUESTION": "x + y = 18 \\n 5y = x \\n What is the solution (x, y) to the given system of equations?",
 	  "C_ANSWER": "(15, 3)",
 	  "ANSWER_1": "(16, 2)",
 	  "ANSWER_2": "(17, 1)",
 	  "ANSWER_3": "(18, 0)",
-	  "EXPLANATION": null
-	},
-	"11": {
-	  "QUESTION": "A machine makes large boxes or small boxes, one at a time, for a total of 700 minutes each day. It takes the machine 10 minutes to make a large box or 5 minutes to make a small box. Which equation represents the possible number of large boxes, x, and small boxes,\ny, the machine can make each day?",
-	  "C_ANSWER": "10x + 5y = 700",
-	  "ANSWER_1": "5x + 10y = 700",
-	  "ANSWER_2": "(x + y)(10+5) = 700",
-	  "ANSWER_3": "(10+x)(5+ y) = 700",
-	  "EXPLANATION": null
-	},
-	"12": {
-	  "QUESTION": "2n + 6 = 14 \\n A tree had a height of 6 feet when it was planted. The equation above can be used to find how many years n it took the tree to reach a height of 14 feet. Which of the following is the best interpretation of the number 2 in this context?",
-	  "C_ANSWER": "The average number of feet that the tree grew per year",
-	  "ANSWER_1": "The number of years it took the tree to double its height",
-	  "ANSWER_2": "The height, in feet, of the tree when the tree was 1 year old",
-	  "ANSWER_3": "The average number of years it takes similar trees to grow 14 feet",
-	  "EXPLANATION": null
-	},
-	"13": {
-	  "QUESTION": "If 3x = 30, what is the value of 3x - 12?",
-	  "C_ANSWER": 18,
-	  "ANSWER_1": -2,
-	  "ANSWER_2": 22,
-	  "ANSWER_3": 42,
-	  "EXPLANATION": null
-	},
-	"14": {
-	  "QUESTION": "(b-2)x = 8\nIn the given equation, b is a constant. If the equation has no solution, what is the value of b?",
-	  "C_ANSWER": 2,
-	  "ANSWER_1": 4,
-	  "ANSWER_2": 6,
-	  "ANSWER_3": 10,
-	  "EXPLANATION": null
-	},
-	"15": {
-	  "QUESTION": "Line r in the xy-plane has a slope of 4 and passes through the point (0,6). Which equation defines line r?",
-	  "C_ANSWER": "y = 4x + 6",
-	  "ANSWER_1": "y = -6x + 4",
-	  "ANSWER_2": "y = 6x + 4",
-	  "ANSWER_3": "y = 4x - 6",
-	  "EXPLANATION": null
-	},
-	"16": {
-	  "QUESTION": "A total of 364 paper straws of equal length were used to construct two types of polygons: triangles and rectangles. The triangles and rectangles were constructed so that no two polygons had a common side. The equation 3x + 4y = 364 represents this situation, where x is the number of triangles constructed and y is the number of rectangles constructed. What is the best interpretation of (x, y) = (24, 73) in this context?",
-	  "C_ANSWER": "If 24 triangles were constructed, then 73 rectangles were constructed.",
-	  "ANSWER_1": "If 24 triangles were constructed, then 73 paper straws were used.",
-	  "ANSWER_2": "If 73 triangles were constructed, then 24 rectangles were constructed.",
-	  "ANSWER_3": "If 73 triangles were constructed, then 24 paper straws were used.",
-	  "EXPLANATION": null
-	},
-	"17": {
-	  "QUESTION": "If the graph of 27x + 33y = 297 is shifted down 5 units in the xy- plane, what is the y-intercept of the resulting graph?",
-	  "C_ANSWER": "(0, 4)",
-	  "ANSWER_1": "(0, 6)",
-	  "ANSWER_2": "(0, 14)",
-	  "ANSWER_3": "(0, 28)",
-	  "EXPLANATION": null
-	},
-	"18": {
-	  "QUESTION": "On a car trip, Rhett and Jessica each drove for part of the trip, and the total distance they drove was under 220 miles. Rhett drove at an average speed of 35 miles per hour (mph), and Jessica drove at an average speed of 40 mph. Which of the following inequalities represents this situation, where r is the number of hours Rhett drove and j is the number of hours Jessica drove?",
-	  "C_ANSWER": "35r + 40j < 220",
-	  "ANSWER_1": "35r + 40j > 220",
-	  "ANSWER_2": "40r + 35j > 220",
-	  "ANSWER_3": "40r + 35j < 220",
-	  "EXPLANATION": null
-	},
-	"19": {
-	  "QUESTION": "The equation y = 0.1x models the relationship between the number of different pieces of music a certain pianist practices, y, during an x-minute practice session. How many pieces did the pianist practice if the session lasted 30 minutes?",
-	  "C_ANSWER": 3,
-	  "ANSWER_1": 1,
-	  "ANSWER_2": 10,
-	  "ANSWER_3": 30,
-	  "EXPLANATION": null
-	},
-	"20": {
-	  "QUESTION": "A bakery sells trays of cookies. Each tray contains at least 50 cookies but no more than 60. Which of the following could be the total number of cookies on 4 trays of cookies?",
-	  "C_ANSWER": 205,
-	  "ANSWER_1": 165,
-	  "ANSWER_2": 245,
-	  "ANSWER_3": 285,
-	  "EXPLANATION": null
+	  "EXPLANATION": "explanation_8"
 	}
   }
 }
