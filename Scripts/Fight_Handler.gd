@@ -33,9 +33,8 @@ func Create_Char(path : String, vector : Vector2, is_char : int):
 	player_instance.scale = Vector2(6,6)
 	
 	var health_bar = health_bar_base.instantiate()
-	health_bar.call_deferred("init", 5)
+	health_bar.call_deferred("init", 5, is_char)
 	add_child(health_bar)
-	health_bar.scale = Vector2(200,200)
 	
 	char_list.append(player_instance)
 	player_instance.died.connect(Callable(end_fight.bind(is_char)))
