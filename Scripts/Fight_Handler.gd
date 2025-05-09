@@ -14,6 +14,7 @@ var fight_over = false
 @onready var question_label = $"/root/Fight/Window/Control/Question_Label"
 @onready var congrat_label = $"/root/Fight/Window/Control/Congrat_Label"
 @onready var answer_choices = [$/root/Fight/Window/Control/VBoxContainer/Answer_1, $/root/Fight/Window/Control/VBoxContainer/Answer_2, $/root/Fight/Window/Control/VBoxContainer/Answer_3, $/root/Fight/Window/Control/VBoxContainer/Answer_4]
+@onready var congrat_texture = $"../Window/Control/TextureRect"
 @onready var correct_answer
 
 var turn = true
@@ -25,19 +26,21 @@ var health_list = []
 func Calc_DMG(character : int) -> int:
 	return char_list[character].attack
 	
-func Create_Char(path : String, vector : Vector2, is_char : int):
+func Create_Char(path : String, vector : Vector2, is_char : int, health : int):
 	var player_instance = char_base.instantiate()
-	player_instance.call_deferred("init", 10, 10, path, is_char)
+	player_instance.call_deferred("init", 1, health, path, is_char)
 	add_child(player_instance)
 	player_instance.position = vector
 	player_instance.scale = Vector2(6,6)
 	
 	var health_bar = health_bar_base.instantiate()
-	health_bar.call_deferred("init", 5, is_char)
+	health_bar.call_deferred("init", health, is_char)
 	add_child(health_bar)
 	
 	char_list.append(player_instance)
+	health_list.append(health_bar)
 	player_instance.died.connect(Callable(end_fight.bind(is_char)))
+	player_instance.health_changed.connect(Callable(_on_health_changed.bind(is_char)))
 	
 func On_Question(questions, type : String):	
 	for i in range (0, answer_choices.size()):
@@ -68,11 +71,10 @@ func answer_choice(button) -> void:
 	
 	if button.text == correct_answer:
 		congrat_label.set_text("Congrats! That is right")
-		dmg = Calc_DMG(0)
 		if (type_choice == "a"):
-			dmg = Calc_DMG(0)
+			dmg = 1
 		if (type_choice == "h"):
-			heal = 10
+			heal = 1
 	else:
 		congrat_label.set_text("Womp womp")
 			
@@ -121,6 +123,12 @@ func end_fight(id):
 	death_label.show()
 	death_window.show()
 	play_again.show()
+	
+func _on_health_changed(id : int):
+	var cur_health = char_list[id].get_health()
+	
+	health_list[id].change_health(cur_health)
+
 
 func load_scene():
 	call_deferred("_deferred_load_scene")

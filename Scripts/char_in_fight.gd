@@ -1,6 +1,7 @@
 extends Node2D
 
 signal died
+signal health_changed
 var heal
 var attack
 var sprite_path : String
@@ -8,20 +9,19 @@ var cur_ani : String
 var char_id
 var prev_ani = ""
 @onready var char_ani = $"Control/CharAni"
-@onready var h_bar = $"Control/ProgressBar"
 
 func _ready():
 	cur_ani = "idle"
 
 func do_dmg(change : int):
 	heal -= change
-	h_bar.value = heal
+	health_changed.emit()
 	if (heal <= 0):
 		died.emit()
 
 func do_heal(change : int):
 	heal += change
-	h_bar.value = heal
+	health_changed.emit()
 
 func get_health() -> int:
 	return heal
@@ -40,6 +40,8 @@ func init(attack_strength : int, health: int, sprite_path_in: String, is_char_nu
 	sprite_path = sprite_path_in
 	var frames_resource = load(sprite_path) as SpriteFrames
 	char_ani.frames = frames_resource
+	if (char_id == 1):
+		char_ani.get_parent().scale.x = -1
 
 func play_death():
 	cur_ani = "death"

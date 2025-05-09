@@ -10,7 +10,6 @@ var rng = RandomNumberGenerator.new()
 @onready var play_again = $"Death_Window/Control/Play_Again"
 @onready var congrat_label = $"Window/Control/Congrat_Label"
 @onready var answer_choices = [$Window/Control/VBoxContainer/Answer_1, $Window/Control/VBoxContainer/Answer_2, $Window/Control/VBoxContainer/Answer_3, $Window/Control/VBoxContainer/Answer_4]
-
 @onready var handler = $"Fight_Handler"
 
 @export var stopwatch_label : Label
@@ -20,8 +19,8 @@ var stopwatch : Stopwatch
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("reached")
-	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres", Vector2(40, 450),0)
-	handler.Create_Char("res://Art/Characters/Gorilla.tres", Vector2(800, 450),1)
+	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres", Vector2(40, 450),0, 5)
+	handler.Create_Char("res://Art/Characters/Gorilla.tres", Vector2(1050, 450), 1, 5)
 	option_container.show()
 	stopwatch = get_tree().get_first_node_in_group("stopwatch")
 	

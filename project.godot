@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SATGame"
-run/main_scene="res://Scenes/Outside/pc_outside.tscn"
+run/main_scene="res://Scenes/fight.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Art/icon.svg"
 
@@ -27,3 +27,4 @@ version_control/autoload_on_startup=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"

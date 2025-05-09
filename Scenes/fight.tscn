@@ -94,6 +94,11 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="Window/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Timer_Label" type="Label" parent="Window/Control"]
 layout_mode = 1
 anchors_preset = 2

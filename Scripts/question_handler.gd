@@ -22,8 +22,8 @@ func parse_question_data(_id, json_data : Dictionary):
 	
 	question_data.answer = str(json_data["C_ANSWER"])
 	question_data.question = json_data["QUESTION"]
-	
 	question_data.incorrect_answers = [str(json_data["ANSWER_1"]), str(json_data["ANSWER_2"]), str(json_data["ANSWER_3"])]
+	#question_data.explanation = str(json_data["EXPLANATION"])
 	
 	return question_data
 	

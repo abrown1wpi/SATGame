@@ -14,12 +14,19 @@ script = ExtResource("1_ugvdk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_right = 7.0
 
-[node name="Heart" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="Heart" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 custom_minimum_size = Vector2(7, 0)
 layout_mode = 2
 
-[node name="Heart" parent="CanvasLayer/HBoxContainer/Heart" instance=ExtResource("1_t0g7m")]
+[node name="Heart" parent="CanvasLayer/Control/HBoxContainer/Heart" instance=ExtResource("1_t0g7m")]
 position = Vector2(6, 6)
