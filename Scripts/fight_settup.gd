@@ -18,7 +18,6 @@ var stopwatch : Stopwatch
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("reached")
 	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres", Vector2(40, 450),0, 5)
 	handler.Create_Char("res://Art/Characters/Gorilla.tres", Vector2(1050, 450), 1, 5)
 	option_container.show()
@@ -35,15 +34,15 @@ func _ready() -> void:
 		var button = answer_choices[i]
 		button.pressed.connect(Callable(handler.answer_choice).bind(button))
 	play_again.pressed.connect(handler.load_scene)
-
-#func _process(delta: float) -> void:
-#	stopwatch_label.text = stopwatch.time_to_string()
 	
 func _on_attack_pressed() -> void:
 	handler.On_Question(questions, "a")
 	
 func _on_heal_pressed() -> void:
 	handler.On_Question(questions, "h")
+	
+func _on_escape_pressed() -> void:
+	handler.end_fight(0)
 	
 func _on_window_close_requested() -> void:
 	q_popup.hide()

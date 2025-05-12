@@ -194,3 +194,4 @@ text = "Play Again"
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Heal" to="." method="_on_heal_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Escape" to="." method="_on_escape_pressed"]
