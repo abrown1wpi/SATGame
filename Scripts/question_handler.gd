@@ -1,10 +1,12 @@
 extends Resource
 class_name q_Handler
 
+# hardcodes question data location
 var question_data_path = "res://Data/questionsJSON.json"
 
 var questions : Dictionary
 
+# triggered by fight_settup.gd and grabs and parses data into a dictionary
 func fight_start():
 	var json_data = UtilFuncs.load_json_from_path(question_data_path)
 	
@@ -17,6 +19,8 @@ func fight_start():
 		print("No data")
 			
 			
+
+# parses the data
 func parse_question_data(_id, json_data : Dictionary):
 	var question_data : QuestionData = QuestionData.new()
 	

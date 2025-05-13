@@ -3,6 +3,7 @@ extends Node2D
 var questions : q_Handler = q_Handler.new()
 var rng = RandomNumberGenerator.new()
 
+# path to screen elements
 @onready var q_popup = $"Window"
 @onready var option_container = $"CanvasLayer/VBoxContainer"
 @onready var death_window = $"Death_Window"
@@ -17,6 +18,9 @@ var rng = RandomNumberGenerator.new()
 var stopwatch : Stopwatch
 
 # Called when the node enters the scene tree for the first time.
+# Initializes the handler and creates the characters
+# Initializes questions and sets the default state for all screen elements
+# Connects buttons to answer choice in handler
 func _ready() -> void:
 	handler.Create_Char("res://Art/Characters/Monkey_Fight_Sprites.tres", Vector2(40, 450),0, 5)
 	handler.Create_Char("res://Art/Characters/Gorilla.tres", Vector2(1050, 450), 1, 5)
@@ -35,6 +39,7 @@ func _ready() -> void:
 		button.pressed.connect(Callable(handler.answer_choice).bind(button))
 	play_again.pressed.connect(handler.load_scene)
 	
+# The following functions bind option buttons to handler on question
 func _on_attack_pressed() -> void:
 	handler.On_Question(questions, "a")
 	
@@ -44,5 +49,3 @@ func _on_heal_pressed() -> void:
 func _on_escape_pressed() -> void:
 	handler.end_fight(0)
 	
-func _on_window_close_requested() -> void:
-	q_popup.hide()
