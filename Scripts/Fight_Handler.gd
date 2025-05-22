@@ -146,7 +146,6 @@ func enemy_turn():
 	
 	option_container.show()
 
-# ends fight and displays the play again panel
 func end_fight(id):
 	fight_over = true
 	q_popup.hide()
@@ -172,16 +171,17 @@ func show_floating_text(text: String, color: Color, target_node: Node2D):
 
 
 # gets health change from the character and sends it to the hearts
+#detects when health is changed inside char list and changes the number of hearts shown using the hearts list
 func _on_health_changed(id : int):
 	var cur_health = char_list[id].get_health()
 	
 	health_list[id].change_health(cur_health)
 
-# reloads the scene
+#reloads the scene
 func load_scene():
 	call_deferred("_deferred_load_scene")
 
-# call defered (so that it is not automatically called on startup)
+#defers all from load scene and ensures it doesn't run on start up
 func _deferred_load_scene():
 	get_tree().change_scene_to_file("res://Scenes/fight.tscn")
 	

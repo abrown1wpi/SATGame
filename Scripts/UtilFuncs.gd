@@ -1,6 +1,6 @@
 class_name UtilFuncs
 
-
+# grabs and parses JSON data
 static func load_json_from_path(path : String):
 	var file_string = FileAccess.get_file_as_string(path)
 	var json_data

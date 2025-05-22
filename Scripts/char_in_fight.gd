@@ -1,7 +1,9 @@
 extends Node2D
 
+# sets up signals for Fight_Handler.gd
 signal died
 signal health_changed
+# sets up class variables
 var heal
 var attack
 var sprite_path : String
@@ -49,7 +51,7 @@ func init(attack_strength : int, health: int, sprite_path_in: String, is_char_nu
 	if (char_id == 1):
 		char_ani.get_parent().scale.x = -1
 
-# animation control methods
+# the following functions play the animation listed in the func title
 func play_death():
 	cur_ani = "death"
 	
@@ -65,6 +67,7 @@ func play_front_fight():
 func play_idle():
 	cur_ani = "idle"
 
+# ensures that death animation only plays once
 func _on_char_ani_animation_looped() -> void:
 	if (cur_ani == "side_fight"):
 		# play only once
