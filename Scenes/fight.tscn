@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp3d2mcte8dn8"]
+[gd_scene load_steps=9 format=3 uid="uid://bp3d2mcte8dn8"]
 
 [ext_resource type="Script" path="res://Scripts/fight_settup.gd" id="1_gyjfr"]
 [ext_resource type="Texture2D" uid="uid://dtn0nn8t8whqc" path="res://Art/Nature/forest.png" id="1_lw86i"]
 [ext_resource type="PackedScene" uid="uid://cubbg31kchrdl" path="res://Scenes/Fight/Stopwatch.tscn" id="3_2et8h"]
 [ext_resource type="Script" path="res://Scripts/Fight_Handler.gd" id="4_4ayhm"]
+[ext_resource type="AudioStream" uid="uid://cmpryesknd7x" path="res://Art/dungeon.wav" id="5_sffme"]
 
 [sub_resource type="GDScript" id="GDScript_na6kr"]
 script/source = "extends VBoxContainer
@@ -190,6 +191,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cwtoj")
 text = "Play Again"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sffme")
+autoplay = true
 
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Attack" to="." method="_on_attack_pressed"]

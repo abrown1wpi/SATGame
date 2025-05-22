@@ -20,6 +20,7 @@ var fight_over = false
 @onready var answer_choices = [$/root/Fight/Window/Control/VBoxContainer/Answer_1, $/root/Fight/Window/Control/VBoxContainer/Answer_2, $/root/Fight/Window/Control/VBoxContainer/Answer_3, $/root/Fight/Window/Control/VBoxContainer/Answer_4]
 @onready var congrat_texture = $"../Window/Control/TextureRect"
 @onready var correct_answer
+@onready var hitmiss_scene = load("res://Scenes/hitmiss.tscn")
 
 # starts on players turn
 var turn = true
@@ -95,9 +96,15 @@ func answer_choice(button) -> void:
 		congrat_label.set_text("Congrats! That is right")
 		if (type_choice == "a"):
 			dmg = 1
+			show_floating_text("Hit", Color.GREEN, char_list[0])
 		if (type_choice == "h"):
 			heal = 1
+			show_floating_text("+1 Health", Color.GREEN, char_list[0])
 	else:
+		if (type_choice == "a"):
+			show_floating_text("Miss", Color.RED, char_list[0])
+		if (type_choice == "h"):
+			show_floating_text("Heal Failed", Color.RED, char_list[0])
 		congrat_label.set_text("Womp womp")
 	
 	# shows the label and does the damage to the 
@@ -120,19 +127,26 @@ func answer_choice(button) -> void:
 
 # does the enemy's turn
 func enemy_turn():
+	# checks if the fight is alreadt over
 	if (fight_over):
 		return
+		
+	# calculates if hits or no (50% chance)
 	var dmg = 0
 	var hit = rng.randi_range(0,1)
 	await get_tree().create_timer(1.5).timeout
 	if (hit == 1):
 		dmg = Calc_DMG(1)
+		show_floating_text("Hit", Color.GREEN, char_list[1])
+	else:
+		show_floating_text("Miss", Color.RED, char_list[1])
 	
 	char_list[0].do_dmg(dmg)
 	char_list[1].play_side_fight()
 	
 	option_container.show()
-	
+
+# ends fight and displays the play again panel
 func end_fight(id):
 	fight_over = true
 	q_popup.hide()
@@ -150,15 +164,24 @@ func end_fight(id):
 	death_window.show()
 	play_again.show()
 	
+func show_floating_text(text: String, color: Color, target_node: Node2D):
+	var text_instance = hitmiss_scene.instantiate()
+	text_instance.set_text(text, color)
+	text_instance.global_position = target_node.global_position + Vector2(0, -40)
+	get_tree().current_scene.add_child(text_instance)
+
+
+# gets health change from the character and sends it to the hearts
 func _on_health_changed(id : int):
 	var cur_health = char_list[id].get_health()
 	
 	health_list[id].change_health(cur_health)
 
-
+# reloads the scene
 func load_scene():
 	call_deferred("_deferred_load_scene")
 
+# call defered (so that it is not automatically called on startup)
 func _deferred_load_scene():
 	get_tree().change_scene_to_file("res://Scenes/fight.tscn")
 	

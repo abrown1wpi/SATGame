@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ni3p033ch6fs"]
+
+[ext_resource type="Script" path="res://Scripts/hitmiss.gd" id="1_cia15"]
+
+[node name="Hitmiss" type="Node2D"]
+script = ExtResource("1_cia15")
+
+[node name="TextLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

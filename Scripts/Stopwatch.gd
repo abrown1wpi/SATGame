@@ -2,6 +2,8 @@ extends Node
 
 class_name Stopwatch
 
+# creates a stopwatch that counts how long it took to answer a question
+# this is an artfact of an unimplemented feature
 var time = 0.0
 var is_counting = true
 

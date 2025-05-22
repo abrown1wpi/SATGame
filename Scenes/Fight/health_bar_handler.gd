@@ -25,10 +25,18 @@ func init(h : int, pc : int):
 func change_health(h : int):
 	var num_change = og_health - h
 	if (h > cur_health):
-		hearts_parent.get_child(og_health - h).show()
+		var tween := create_tween()
+		var heart = hearts_parent.get_child(og_health - h)
+		heart.show()
+		heart.scale = Vector2(0.1, 0.1)
+		
+		
+		tween.tween_property(heart, "scale", Vector2(1,1), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+		
 	if (h < cur_health):
 		for i in range (num_change):
-			hearts_parent.get_child(i).hide()
-	
+			var heart = hearts_parent.get_child(i)
+
+			heart.hide()
 	cur_health = h
 	

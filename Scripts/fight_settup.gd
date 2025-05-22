@@ -12,6 +12,7 @@ var rng = RandomNumberGenerator.new()
 @onready var answer_choices = [$Window/Control/VBoxContainer/Answer_1, $Window/Control/VBoxContainer/Answer_2, $Window/Control/VBoxContainer/Answer_3, $Window/Control/VBoxContainer/Answer_4]
 @onready var handler = $"Fight_Handler"
 
+# artifact - see stopwatch.gd
 @export var stopwatch_label : Label
 
 var stopwatch : Stopwatch
